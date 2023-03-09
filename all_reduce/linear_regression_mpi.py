@@ -1,4 +1,27 @@
 # Implementation of gradient descent in linear regression with MPI
+
+"""
+Sometimes getting this error;  numerical instability during the calculations?
+
+@ mpirun -np 4 python linear_regression_mpi.py
+
+/Users/oanaflores/Coding/tutorials/mpi/all_reduce/linear_regression_mpi.py:43: RuntimeWarning: overflow encountered in scalar power
+  J = (1 / 2*m) * (np.sum(Y_pred - self.Y)**2)
+/Users/oanaflores/Coding/tutorials/mpi/all_reduce/linear_regression_mpi.py:20: RuntimeWarning: overflow encountered in multiply
+  np.sum((Y_pred - Y) * self.X)))
+/Users/oanaflores/Coding/tutorials/mpi/all_reduce/linear_regression_mpi.py:19: RuntimeWarning: invalid value encountered in scalar subtract
+  self.b[1] = self.b[1] - (learning_rate * ((1/m) *
+100 epochs elapsed
+Rank 2 Current accuracy is : nan
+100 epochs elapsed
+Rank 3 Current accuracy is : 0.9886146058578444
+100 epochs elapsed
+Rank 0 Current accuracy is : 1.0
+100 epochs elapsed
+Rank 1 Current accuracy is : 0.7602068381941984
+200 epochs elapsed
+
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 from mpi4py import MPI
